@@ -1,0 +1,46 @@
+@import '../../style/mixins/index.scss';
+
+$block-size: 27;
+label{
+  display: inline-block;
+}
+
+@include b(ia-switch){
+  cursor: pointer;
+  @include e(track){
+    display: flex;
+    align-items: center;
+    width: s(51);
+    height: s(31);
+    border-radius: s($block-size);
+  }
+  @include e(block){
+    width: s($block-size);
+    height: s($block-size);
+    border-radius: 50%;
+    border: s(1) solid rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 s(3) s(1) 0 rgba(0, 0, 0, 0.06), 0 s(3) s(8) 0 rgba(0, 0, 0, 0.15);
+    transition: background-color .3s, transform .3s;
+  }
+  @include m(off){
+    @include sub_e(track){
+      background-color: var(--ia-disabled);
+    }
+    @include sub_e(block){
+      transform: translateX(s(2));
+    }
+  }
+  @include m(on){
+    @include sub_e(track){
+      background-color: var(--ia-success);
+    }
+    @include sub_e(block){
+      transform: translateX(s(22));
+    }
+  }
+  @include m(disabled){
+    cursor: not-allowed;
+    opacity: 0.62;
+  }
+}

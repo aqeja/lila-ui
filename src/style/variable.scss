@@ -1,0 +1,63 @@
+@import './mixins/make-color-palette.scss';
+:root{
+  @include make-color-palette(primary);
+  @include make-color-palette(disabled);
+  @include make-color-palette(success);
+  @include make-color-palette(error);
+  @include make-color-palette(info);
+  @include make-color-palette(warning);
+  --ia-light-primary-text-color: #f5f5f5;
+  --ia-dark-primary-text-color: #f5f5f5;
+
+  --ia-on-primary: red;
+  --ia-on-surface: blue;
+
+  --ia-color-primary-hue: 210;
+  --ia-color-primary-saturation: 100%;
+  --ia-primary: var(--ia-color-primary-50);
+
+  --ia-color-success-hue: 135;
+  --ia-color-success-saturation: 59%;
+  --ia-success: var(--ia-color-success-50);
+
+  --ia-color-error-hue: 360;
+  --ia-color-error-saturation: 78%;
+  --ia-error: var(--ia-color-error-60);
+
+  --ia-color-warning-hue: 24;
+  --ia-color-warning-saturation: 100%;
+  --ia-warning: var(--ia-color-warning-70);
+
+  --ia-color-info-hue: 211;
+  --ia-color-info-saturation: 6%;
+  --ia-info: var(--ia-color-info-35);
+
+  --ia-color-disabled-hue: 218;
+  --ia-color-disabled-saturation: 10%;
+  --ia-disabled: var(--ia-color-disabled-85);
+
+  // ————————————————————————————————————————————————————————
+  // ————————————————————————————————————————————————————————
+
+  /**
+    size相关设置
+   */
+  --rem: 20px;
+}
+
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    // --ia-background: #333;
+    // --ia-surface: #444;
+    --ia-background: #f8f8f8;
+    --ia-surface: #f2f2f2;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root{
+    --ia-background: #f8f8f8;
+    --ia-surface: #f2f2f2;
+  }
+}

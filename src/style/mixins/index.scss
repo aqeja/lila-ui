@@ -1,0 +1,6 @@
+@import '../../../node_modules/@mesic/style/mixin/bem.scss';
+
+@function s($size) {
+  $r: $size / 20;
+  @return calc(#{$r} * max(var(--rem), 12px));
+}

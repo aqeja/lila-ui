@@ -1,0 +1,72 @@
+@import '../../style/mixins/index.scss';
+
+/**
+ *设置非禁用状态下不同状态的background-color或者color
+ */
+@mixin set-different-states-color($type, $lightness, $attr: background-color) {
+  &:not(:disabled) {
+    #{$attr}: var(--ia-#{$type});
+  }
+  &:not(:disabled):hover{
+    #{$attr}: var(--ia-color-#{$type}-#{$lightness});
+  }
+  &:not(:disabled):active{
+    #{$attr}: var(--ia-color-#{$type}-#{$lightness + 5}); // 点击时的亮度是在hover时亮度的基础上+5
+  }
+}
+
+:host {
+  display: inline-block;
+}
+button{
+  outline: none;
+  border: none;
+  line-height: s(44);
+  padding: 0 s(20);
+  font-size: s(16);
+  transition: background-color .3s;
+  color: #fff;
+  &:disabled{
+    cursor: not-allowed;
+    &[class$=text]{
+      background-color: transparent;
+      color: var(--ia-disabled);
+    }
+    &:not([class$=text]){
+      background-color: var(--ia-disabled);
+    }
+  }
+  &:not(:disabled){
+    cursor: pointer;
+    &[class$=text]{
+      background-color: inherit;
+    }
+  }
+  &.round{
+    border-radius: 99px;
+  }
+  &:not(.round){
+    border-radius: s(6);
+  }
+}
+
+@include b(ia-button){
+  @include m(primary){
+    @include set-different-states-color(primary, 55);
+  }
+  @include m(success){
+    @include set-different-states-color(success, 35);
+  }
+  @include m(warning){
+    @include set-different-states-color(warning, 75);
+  }
+  @include m(error){
+    @include set-different-states-color(error, 65);
+  }
+  @include m(info){
+    @include set-different-states-color(info, 40);
+  }
+  @include m(text){
+    @include set-different-states-color(primary, 55, color);
+  }
+}
