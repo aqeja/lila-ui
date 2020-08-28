@@ -1,7 +1,7 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
 import scss from 'rollup-plugin-scss';
-import { writeFileSync } from 'fs'
+import { writeFileSync } from 'fs';
 export const config: Config = {
   namespace: 'lila',
   taskQueue: 'async',
@@ -29,11 +29,9 @@ export const config: Config = {
     after: [
       scss({
         output: function (styles) {
-          writeFileSync('www/build/lila.css', styles)
+          writeFileSync('www/build/lila.css', styles);
         },
-      })
-    ]
-  }
+      }),
+    ],
+  },
 };
-
-
