@@ -1,0 +1,17 @@
+@import '../../../node_modules/@mesic/style/mixin/bem.scss';
+.h{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@include b(ia-dialog){
+  @include e(header){
+    color: #fff;
+  }
+  @include e(wrapper){
+    width: 500px;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #fff;
+  }
+}

@@ -10,7 +10,7 @@ export interface IaCheckbox {
   styleUrl: 'switch.scss',
   shadow: true,
 })
-export class Contextmenu {
+export class Switch {
   id = 'switch-node';
   inputElement: HTMLInputElement;
   /**

@@ -45,6 +45,19 @@ export namespace Components {
          */
         "type": 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text';
     }
+    interface IaDialog {
+        /**
+          * 是否将modal元素移动至body下
+         */
+        "atRoot": boolean;
+        "tilte": string;
+    }
+    interface IaModal {
+        /**
+          * 是否将modal元素移动至body下
+         */
+        "atRoot": boolean;
+    }
     interface IaPlayground {
     }
     interface IaSwitch {
@@ -77,6 +90,18 @@ declare global {
         prototype: HTMLIaButtonElement;
         new (): HTMLIaButtonElement;
     };
+    interface HTMLIaDialogElement extends Components.IaDialog, HTMLStencilElement {
+    }
+    var HTMLIaDialogElement: {
+        prototype: HTMLIaDialogElement;
+        new (): HTMLIaDialogElement;
+    };
+    interface HTMLIaModalElement extends Components.IaModal, HTMLStencilElement {
+    }
+    var HTMLIaModalElement: {
+        prototype: HTMLIaModalElement;
+        new (): HTMLIaModalElement;
+    };
     interface HTMLIaPlaygroundElement extends Components.IaPlayground, HTMLStencilElement {
     }
     var HTMLIaPlaygroundElement: {
@@ -93,6 +118,8 @@ declare global {
         "app-root": HTMLAppRootElement;
         "ia-alert": HTMLIaAlertElement;
         "ia-button": HTMLIaButtonElement;
+        "ia-dialog": HTMLIaDialogElement;
+        "ia-modal": HTMLIaModalElement;
         "ia-playground": HTMLIaPlaygroundElement;
         "ia-switch": HTMLIaSwitchElement;
     }
@@ -136,6 +163,19 @@ declare namespace LocalJSX {
          */
         "type"?: 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text';
     }
+    interface IaDialog {
+        /**
+          * 是否将modal元素移动至body下
+         */
+        "atRoot"?: boolean;
+        "tilte"?: string;
+    }
+    interface IaModal {
+        /**
+          * 是否将modal元素移动至body下
+         */
+        "atRoot"?: boolean;
+    }
     interface IaPlayground {
     }
     interface IaSwitch {
@@ -156,6 +196,8 @@ declare namespace LocalJSX {
         "app-root": AppRoot;
         "ia-alert": IaAlert;
         "ia-button": IaButton;
+        "ia-dialog": IaDialog;
+        "ia-modal": IaModal;
         "ia-playground": IaPlayground;
         "ia-switch": IaSwitch;
     }
@@ -167,6 +209,8 @@ declare module "@stencil/core" {
             "app-root": LocalJSX.AppRoot & JSXBase.HTMLAttributes<HTMLAppRootElement>;
             "ia-alert": LocalJSX.IaAlert & JSXBase.HTMLAttributes<HTMLIaAlertElement>;
             "ia-button": LocalJSX.IaButton & JSXBase.HTMLAttributes<HTMLIaButtonElement>;
+            "ia-dialog": LocalJSX.IaDialog & JSXBase.HTMLAttributes<HTMLIaDialogElement>;
+            "ia-modal": LocalJSX.IaModal & JSXBase.HTMLAttributes<HTMLIaModalElement>;
             "ia-playground": LocalJSX.IaPlayground & JSXBase.HTMLAttributes<HTMLIaPlaygroundElement>;
             "ia-switch": LocalJSX.IaSwitch & JSXBase.HTMLAttributes<HTMLIaSwitchElement>;
         }

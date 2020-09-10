@@ -1,14 +1,8 @@
 {
-  // "parserOptions": {
-  //   "project": "./tsconfig.json"
-  // },
-  "extends": [
-    "plugin:@stencil/recommended",
-    "prettier/@typescript-eslint",
-    "plugin:prettier/recommended"
-  ],
+  "root": true,
+  "extends": ["prettier/@typescript-eslint", "plugin:prettier/recommended"],
   "rules": {
-    "@stencil/async-methods": "error",
+    "@stencil/async-methods": "off",
     "@stencil/ban-prefix": ["error", ["stencil", "stnl", "st"]],
     "@stencil/decorators-context": "error",
     "@stencil/decorators-style": [
