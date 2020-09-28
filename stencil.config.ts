@@ -1,11 +1,11 @@
 import { Config } from '@stencil/core';
 import { sass } from '@stencil/sass';
-import scss from 'rollup-plugin-scss';
-import { writeFileSync } from 'fs';
+
 export const config: Config = {
   namespace: 'lila',
   taskQueue: 'async',
   buildEs5: false,
+  globalStyle: 'src/style/lila.scss',
   outputTargets: [
     {
       type: 'dist',
@@ -19,19 +19,13 @@ export const config: Config = {
       type: 'www',
       serviceWorker: null, // disable service workers
     },
+    {
+      type: 'dist-custom-elements-bundle'
+    }
   ],
   plugins: [
     sass({
       injectGlobalPaths: ['src/style/base.scss'],
     }),
-  ],
-  rollupPlugins: {
-    after: [
-      scss({
-        output: function (styles) {
-          writeFileSync('www/build/lila.css', styles);
-        },
-      }),
-    ],
-  },
+  ]
 };

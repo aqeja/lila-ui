@@ -6,7 +6,6 @@ const b = createBem('ia-button');
 /**
  * @slot spinner - loading加载指示器
  */
-
 @Component({
   tag: 'ia-button',
   styleUrl: 'button.scss',

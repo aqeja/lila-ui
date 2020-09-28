@@ -51,11 +51,11 @@ export class Playground {
         <ia-button type="text">text按钮</ia-button>
         <br />
         <ia-button type="success">success按钮</ia-button>
-        <ia-dialog>
+        {/* <ia-dialog>
           <p slot="title">
             今天天气怎样？
           </p>
-        </ia-dialog>
+        </ia-dialog> */}
       </Host>
     );
   }
