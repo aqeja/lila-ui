@@ -10,12 +10,19 @@ const b = createBem('ia-playground');
 })
 export class Playground {
   @State() loading = false;
+  @State() dialogVisible = false;
   changeState(e: MouseEvent) {
     console.log(e);
     this.loading = !this.loading;
   }
   onSwitch(e: CustomEvent<{ value: boolean }>) {
     console.log(e.detail.value);
+  }
+  sss() {
+    this.dialogVisible = true
+  }
+  onClose() {
+    this.dialogVisible = false
   }
   render() {
     return (
@@ -48,13 +55,21 @@ export class Playground {
         <ia-button type="text" disabled>
           text按钮
         </ia-button>
-        <ia-button type="text">text按钮</ia-button>
+        <ia-button type="text" onClick={() => this.sss()}>text按钮</ia-button>
         <br />
         <ia-button type="success">success按钮</ia-button>
         {/* <ia-dialog>
           <p slot="title">
             今天天气怎样？
           </p>
+        </ia-dialog> */}
+          <ia-mask visible={true} onClose={() => this.dialogVisible = false}>
+            <h1>
+              ddddd
+            </h1>
+          </ia-mask>
+        {/* <ia-dialog visible={this.dialogVisible} onClose={() => this.onClose()}>
+          dddd
         </ia-dialog> */}
       </Host>
     );

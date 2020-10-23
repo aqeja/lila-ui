@@ -1,7 +1,4 @@
-import { Component, h, Prop } from '@stencil/core';
-import { createBem } from '../../utils/utils';
-
-const b = createBem('ia-dialog');
+import { Component, h, Prop, Element, Event, EventEmitter } from '@stencil/core';
 
 @Component({
   tag: 'ia-dialog',
@@ -11,24 +8,32 @@ const b = createBem('ia-dialog');
 export class Dialog {
   /** 是否将modal元素移动至body下 */
   @Prop() atRoot = false;
+  /** title */
   @Prop() tilte = '';
+  @Prop() visible!: boolean;
+  @Event() close: EventEmitter;
+  @Element() host: HTMLIaDialogElement;
+  componentWillLoad() {}
+  onCloseDialog() {
+    this.close.emit()
+  }
   render() {
-    return <ia-modal atRoot={this.atRoot} class="h">
-      <div class={b.e('wrapper').c}>
-        <p class={b.e('header').c}>
-          <span class="title">
-            <slot name="title">
-              { this.tilte }
-            </slot>
-          </span>
-          <span>
-            x
-          </span>
-        </p>
-        <div class={b.e('body').c}>
-
+    return (
+      <ia-mask class="root" visible={this.visible}>
+        <div class="wrapper">
+          <p class="header">
+            <span class="title">
+              <slot name="title">{this.tilte}</slot>
+            </span>
+          </p>
+          <div class="body">
+            <slot></slot>
+          </div>
+          <div class="footer">
+            <slot name="footer"></slot>
+          </div>
         </div>
-      </div>
-    </ia-modal>
+      </ia-mask>
+    );
   }
 }

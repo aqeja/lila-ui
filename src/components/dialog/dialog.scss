@@ -1,17 +1,24 @@
-@import '../../../node_modules/@mesic/style/mixin/bem.scss';
-.h{
+.root{
   display: flex;
   justify-content: center;
   align-items: center;
+  padding-bottom: 200px;
 }
-@include b(ia-dialog){
-  @include e(header){
-    color: #fff;
-  }
-  @include e(wrapper){
-    width: 500px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #fff;
-  }
+
+.wrapper{
+  width: 500px;
+  padding: s(20);
+  border-radius: s(6);
+  background-color: #fff;
+  box-shadow: 0 s(3) s(6) rgba(#000, 0.16);
+}
+.title{
+  font-size: var(--bloc-headline7);
+  font-weight: 500;
+}
+.body{
+  margin-top: s(30);
+}
+.footer{
+  margin-top: s(40);
 }
