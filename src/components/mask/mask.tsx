@@ -43,7 +43,7 @@ export class SetParams {
       }
     }
   }
-  componentDidLoad() {
+  componentWillLoad() {
     this.scopeVisible = this.visible;
     this.showing = this.visible;
   }
