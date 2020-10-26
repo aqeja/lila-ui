@@ -19,20 +19,26 @@
 button{
   width: 100%;
   outline: none;
-  border: none;
-  line-height: s(44);
-  padding: 0 s(20);
-  font-size: s(16);
   transition: background-color .3s;
   color: #fff;
+  height: s(44, var(--scope-sale-size));
+  line-height: s(44, var(--scope-sale-size));
+  padding: 0 s(20, var(--scope-sale-size));
+  font-size: s(16, var(--scope-sale-size));
+  @include set_size;
+  &:not([class*=plain]){
+    border: none;
+  }
   &:disabled{
     cursor: not-allowed;
     &[class$=text]{
       background-color: transparent;
-      color: var(--ia-disabled);
+      color: var(--ia-disabled)!important;
     }
     &:not([class$=text]){
+      border-color: #fff!important;
       background-color: var(--ia-disabled);
+      color: #fff!important;
     }
   }
   &:not(:disabled){
@@ -42,10 +48,10 @@ button{
     }
   }
   &.round{
-    border-radius: 99px;
+    border-radius: s(22, var(--scope-sale-size));
   }
   &:not(.round){
-    border-radius: s(6);
+    border-radius: s(6, var(--scope-sale-size));
   }
 }
 
@@ -68,4 +74,25 @@ button{
   @include m(text){
     @include set-different-states-color(primary, 55, color);
   }
+  @include m(plain){
+    background-color: transparent;
+    border: 1px solid;
+    @include set-different-states-color(primary, 55, color);
+    @include set-different-states-color(primary, 55, border-color);
+  }
+}
+@keyframes spinner{
+  0%{
+    transform: rotate(0);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}
+.loading-spinner{
+  width: s(14, var(--scope-sale-size));
+  height: s(14, var(--scope-sale-size));
+  vertical-align: middle;
+  margin-right: s(10, var(--scope-sale-size));
+  animation: spinner 0.8s infinite linear;
 }

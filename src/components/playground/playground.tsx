@@ -36,6 +36,15 @@ export class Playground {
         <ia-button loading={this.loading} round={true}>
           按钮测试
         </ia-button>
+        <ia-button color="red" size="mini">
+          普通putton mini
+        </ia-button>
+        <ia-button color="red" size="small" loading={true}>
+          普通putton small
+        </ia-button>
+        <ia-button color="blue">
+          普通putton
+        </ia-button>
         <br />
         <button onClick={(e: MouseEvent) => this.changeState(e)}>设置为loading</button>
         <br />
@@ -49,7 +58,7 @@ export class Playground {
         <br />
         <ia-button type="warning">warning按钮</ia-button>
         <br />
-        <ia-button type="warning" disabled>
+        <ia-button type="warning" disabled loading={true}>
           warning按钮
         </ia-button>
         <ia-button type="text" disabled>
@@ -63,14 +72,11 @@ export class Playground {
             今天天气怎样？
           </p>
         </ia-dialog> */}
-          <ia-mask visible={true} onClose={() => this.dialogVisible = false}>
+          <ia-mask visible={false} onClose={() => this.dialogVisible = false}>
             <h1>
               ddddd
             </h1>
           </ia-mask>
-        {/* <ia-dialog visible={this.dialogVisible} onClose={() => this.onClose()}>
-          dddd
-        </ia-dialog> */}
       </Host>
     );
   }

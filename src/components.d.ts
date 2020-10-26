@@ -28,6 +28,7 @@ export namespace Components {
         "type": 'success' | 'error' | 'warning' | 'info';
     }
     interface IaButton {
+        "color": string;
         /**
           * 是否被禁用
          */
@@ -40,10 +41,11 @@ export namespace Components {
           * 是否设置圆角
          */
         "round": boolean;
+        "size": 'mini' | 'small' | 'medium';
         /**
           * 按钮类型
          */
-        "type": 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text';
+        "type": 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text' | 'plain';
     }
     interface IaDialog {
         /**
@@ -147,6 +149,7 @@ declare namespace LocalJSX {
         "type"?: 'success' | 'error' | 'warning' | 'info';
     }
     interface IaButton {
+        "color"?: string;
         /**
           * 是否被禁用
          */
@@ -159,10 +162,11 @@ declare namespace LocalJSX {
           * 是否设置圆角
          */
         "round"?: boolean;
+        "size"?: 'mini' | 'small' | 'medium';
         /**
           * 按钮类型
          */
-        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text';
+        "type"?: 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text' | 'plain';
     }
     interface IaDialog {
         /**

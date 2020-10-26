@@ -1,6 +1,19 @@
 @import '../../../node_modules/@mesic/style/mixin/bem.scss';
 
-@function s($size) {
+@function s($size, $scale: 1) {
   $r: $size / 20;
-  @return calc(#{$r} * max(var(--rem), 12px));
+  // @return calc(#{$r} * max(var(--rem), 12px) * #{$scale});
+  @return calc(var(--rem) * #{$r} * #{$scale});
+}
+
+@mixin set_size {
+  &.mini{
+    --scope-sale-size: var(--ia-mini-size-scale);
+  }
+  &.small{
+    --scope-sale-size: var(--ia-small-size-scale);
+  }
+  &.medium{
+    --scope-sale-size: var(--ia-medium-size-scale);
+  }
 }

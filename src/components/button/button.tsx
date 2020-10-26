@@ -12,7 +12,7 @@ const b = createBem('ia-button');
   shadow: true,
 })
 export class Button {
-  @Element() host: HTMLIaButtonElement;
+  host: HTMLButtonElement;
   /**
    * 是否正在加载中
    */
@@ -20,7 +20,9 @@ export class Button {
   /**
    * 按钮类型
    */
-  @Prop() type: 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text' = 'primary';
+  @Prop() type: 'primary' | 'success' | 'info' | 'warning' | 'error' | 'text' | 'plain' = 'plain';
+  @Prop() color: string;
+  @Prop() size: 'mini' | 'small' | 'medium' = 'medium'
   /**
    * 是否设置圆角
    */
@@ -32,7 +34,12 @@ export class Button {
   get _disabled() {
     return this.disabled || this.loading;
   }
-
+  componentDidLoad() {
+    if (this.color) {
+      this.host.style.color = this.color
+      this.host.style.borderColor = this.color
+    }
+  }
   onClick(e: MouseEvent) {
     if (this.disabled || this.loading) {
       e.preventDefault();
@@ -43,14 +50,16 @@ export class Button {
     return (
       <Host class={b.c}>
         <button
+          ref={el => this.host= el}
           disabled={this._disabled}
           onClick={(e: MouseEvent) => this.onClick(e)}
           class={{
             round: this.round,
+            [this.size]: true,
             [`${b.m(this.type).c}`]: true,
           }}
         >
-          {this.loading && <slot name="spinner">loading...</slot>}
+          {this.loading && <img src="http://ttt.iulab.xyz/g3zux.svg" class="loading-spinner" alt=""/>}
           <slot></slot>
         </button>
       </Host>
