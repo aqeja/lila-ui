@@ -8,9 +8,12 @@ export class SetParams {
   @Element() host: HTMLIaMaskElement;
   @Event() close: EventEmitter<void>;
   @Prop() visible!: boolean;
+  @Prop() modal = true;
+  @Prop() transitionName:'from-bottom' | 'from-top' | 'from-left' | 'from-right'= 'from-top';
   @State() scopeVisible = false;
   @State() closing = false;
   @State() showing = false;
+  mask: HTMLDivElement;
   frozing = false
   onAnimationEnd() {
     if (this.closing) {
@@ -47,12 +50,20 @@ export class SetParams {
     this.scopeVisible = this.visible;
     this.showing = this.visible;
   }
+  componentDidLoad() {
+    this.setModalOpacity();
+  }
+  setModalOpacity() {
+    if (!this.modal) {
+      this.mask.style.display = 'none';
+    }
+  }
   render() {
     return this.scopeVisible && <Host>
       <div class="wrapper">
-        <div class={{mask: true, closing: this.closing, showing: this.showing}} onAnimationEnd={() => this.onAnimationEnd()}>
+        <div class={{mask: true, closing: this.closing, showing: this.showing}} onAnimationEnd={() => this.onAnimationEnd()} ref={el => this.mask = el}>
         </div>
-        <div class={{main: true, closing: this.closing, showing: this.showing}}>
+        <div class={{main: true, closing: this.closing, showing: this.showing, [this.transitionName]: true}}>
           <slot></slot>
         </div>
       </div>

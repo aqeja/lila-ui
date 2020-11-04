@@ -1,4 +1,4 @@
-import { Component, Host, h, Prop, Element } from '@stencil/core';
+import { Component, Host, h, Prop } from '@stencil/core';
 import { createBem } from '../../utils/utils';
 
 const b = createBem('ia-button');

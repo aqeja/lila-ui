@@ -6,7 +6,7 @@
     opacity: 1;
   }
 }
-@keyframes main{
+@keyframes from-top{
   0%{
     transform: translateY(-10px);
     opacity: 0;
@@ -14,6 +14,49 @@
   100%{
     transform: translateY(0);
     opacity: 1;
+  }
+}
+@keyframes from-bottom{
+  0%{
+    transform: translateY(50%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes from-left{
+  0%{
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes from-right{
+  0%{
+    transform: translateX(50%);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@mixin register_transtion($directions...) {
+  @each $direction in $directions {
+    &.#{$direction}{
+      &.showing{
+        animation: $direction 0.3s;
+      }
+      &.closing{
+        animation: $direction 0.3s reverse forwards;
+      }
+    }
   }
 }
 .wrapper{
@@ -28,7 +71,7 @@
   align-items: center;
 }
 .mask{
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(#000, 0.4);
   position: absolute;
   left: 0;
   top: 0;
@@ -43,10 +86,5 @@
 }
 .main{
   position: relative;
-  &.showing{
-    animation: main 0.2s;
-  }
-  &.closing{
-    animation: main 0.2s reverse forwards;
-  }
+  @include register_transtion(from-top,from-bottom,from-left,from-right);
 }

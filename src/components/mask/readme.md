@@ -7,9 +7,11 @@
 
 ## Properties
 
-| Property               | Attribute | Description | Type      | Default     |
-| ---------------------- | --------- | ----------- | --------- | ----------- |
-| `visible` _(required)_ | `visible` |             | `boolean` | `undefined` |
+| Property               | Attribute         | Description | Type                                                         | Default      |
+| ---------------------- | ----------------- | ----------- | ------------------------------------------------------------ | ------------ |
+| `modal`                | `modal`           |             | `boolean`                                                    | `true`       |
+| `transitionName`       | `transition-name` |             | `"from-bottom" \| "from-left" \| "from-right" \| "from-top"` | `'from-top'` |
+| `visible` _(required)_ | `visible`         |             | `boolean`                                                    | `undefined`  |
 
 
 ## Events
