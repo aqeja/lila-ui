@@ -67,8 +67,28 @@
   height: 100%;
   z-index: 3;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  &.justify{
+    &__start{
+      justify-content: flex-start;
+    }
+    &__center{
+      justify-content: center;
+    }
+    &__end{
+      justify-content: flex-end;
+    }
+  }
+  &.align{
+    &__top{
+      align-items: flex-start;
+    }
+    &__middle{
+      align-items: center;
+    }
+    &__bottom{
+      align-items: flex-end;
+    }
+  }
 }
 .mask{
   background-color: rgba(#000, 0.4);

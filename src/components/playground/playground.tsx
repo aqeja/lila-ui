@@ -72,7 +72,7 @@ export class Playground {
             今天天气怎样？
           </p>
         </ia-dialog> */}
-          <ia-mask visible={true} onClose={() => this.dialogVisible = false} modal={false} transitionName="from-right">
+          <ia-mask visible={true} onClose={() => this.dialogVisible = false} modal={false}>
             <h1>
               ddddd
             </h1>

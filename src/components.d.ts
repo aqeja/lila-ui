@@ -59,6 +59,8 @@ export namespace Components {
         "visible": boolean;
     }
     interface IaMask {
+        "align": 'top' | 'middle' | 'bottom';
+        "justify": 'start' | 'center' | 'end';
         "modal": boolean;
         "transitionName": 'from-bottom' | 'from-top' | 'from-left' | 'from-right';
         "visible": boolean;
@@ -183,6 +185,8 @@ declare namespace LocalJSX {
         "visible": boolean;
     }
     interface IaMask {
+        "align"?: 'top' | 'middle' | 'bottom';
+        "justify"?: 'start' | 'center' | 'end';
         "modal"?: boolean;
         "onClose"?: (event: CustomEvent<void>) => void;
         "transitionName"?: 'from-bottom' | 'from-top' | 'from-left' | 'from-right';

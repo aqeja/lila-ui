@@ -10,6 +10,8 @@ export class SetParams {
   @Prop() visible!: boolean;
   @Prop() modal = true;
   @Prop() transitionName:'from-bottom' | 'from-top' | 'from-left' | 'from-right'= 'from-top';
+  @Prop() justify: 'start' | 'center' | 'end' = 'center';
+  @Prop() align: 'top' | 'middle' | 'bottom' = 'middle';
   @State() scopeVisible = false;
   @State() closing = false;
   @State() showing = false;
@@ -60,7 +62,7 @@ export class SetParams {
   }
   render() {
     return this.scopeVisible && <Host>
-      <div class="wrapper">
+      <div class={{wrapper: true, [`justify__${this.justify}`]: true, [`align__${this.align}`]: true}}>
         <div class={{mask: true, closing: this.closing, showing: this.showing}} onAnimationEnd={() => this.onAnimationEnd()} ref={el => this.mask = el}>
         </div>
         <div class={{main: true, closing: this.closing, showing: this.showing, [this.transitionName]: true}}>

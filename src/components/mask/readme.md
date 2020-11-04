@@ -9,6 +9,8 @@
 
 | Property               | Attribute         | Description | Type                                                         | Default      |
 | ---------------------- | ----------------- | ----------- | ------------------------------------------------------------ | ------------ |
+| `align`                | `align`           |             | `"bottom" \| "middle" \| "top"`                              | `'middle'`   |
+| `justify`              | `justify`         |             | `"center" \| "end" \| "start"`                               | `'center'`   |
 | `modal`                | `modal`           |             | `boolean`                                                    | `true`       |
 | `transitionName`       | `transition-name` |             | `"from-bottom" \| "from-left" \| "from-right" \| "from-top"` | `'from-top'` |
 | `visible` _(required)_ | `visible`         |             | `boolean`                                                    | `undefined`  |
