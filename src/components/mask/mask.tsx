@@ -63,9 +63,9 @@ export class SetParams {
   render() {
     return this.scopeVisible && <Host>
       <div class={{wrapper: true, [`justify__${this.justify}`]: true, [`align__${this.align}`]: true}}>
-        <div class={{mask: true, closing: this.closing, showing: this.showing}} onAnimationEnd={() => this.onAnimationEnd()} ref={el => this.mask = el}>
+        <div class={{mask: true, closing: this.closing, showing: this.showing}} ref={el => this.mask = el}>
         </div>
-        <div class={{main: true, closing: this.closing, showing: this.showing, [this.transitionName]: true}}>
+        <div class={{main: true, closing: this.closing, showing: this.showing, [this.transitionName]: true}} onAnimationEnd={() => this.onAnimationEnd()}>
           <slot></slot>
         </div>
       </div>

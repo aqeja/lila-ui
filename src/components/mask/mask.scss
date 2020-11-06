@@ -106,5 +106,6 @@
 }
 .main{
   position: relative;
+  width: 100%;
   @include register_transtion(from-top,from-bottom,from-left,from-right);
 }
